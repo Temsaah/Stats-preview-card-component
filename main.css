@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend+Deca:wght@100..900&display=swap");
+
+:root {
+  --clr-primary-bg: hsl(233, 47%, 7%);
+  --clr-primary-card-bg: hsl(244, 38%, 16%);
+  --clr-primary-soft-violet: hsl(277, 64%, 61%);
+
+  --clr-neutral-white: hsl(0, 0%, 100%);
+  --clr-neutral-slight-transparent-white: hsla(0, 0%, 100%, 0.75);
+  --clr-neutral-transparent-white: hsla(0, 0%, 100%, 0.6);
+
+  --ff-primary: "Inter", sans-serif;
+  --ff-secondary: "Lexend Deca", sans-serif;
+
+  --fw-semibold: 400;
+  --fw-bold: 700;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--clr-primary-bg);
+  display: grid;
+  place-items: center;
+}
+
+main {
+  width: min(90%, 400px);
+  margin-inline: auto;
+}
+
+section {
+  background-color: var(--clr-primary-card-bg);
+  border-radius: 0.5rem;
+}
+
+.images :nth-child(1) {
+  display: none;
+}
+
+.images {
+  max-width: 100%;
+  position: relative;
+}
+
+.images img {
+  border-radius: 0.5rem 0.5rem 0 0;
+  position: relative;
+}
+
+section article .images::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: hsl(277.14deg 81.12% 30.51% / 54%);
+}
+
+section article {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+section article .images {
+  grid-row: 1;
+}
+
+section article .info {
+  padding: 2rem;
+  text-align: center;
+  color: var(--clr-neutral-white);
+}
+
+section article .info h1 {
+  font-size: 1.7rem;
+  line-height: 30px;
+  font-family: var(--ff-primary);
+  margin: 0;
+}
+
+section article .info span {
+  color: var(--clr-primary-soft-violet);
+}
+
+section article .info > p {
+  color: var(--clr-neutral-slight-transparent-white);
+  padding-inline: 0.8rem;
+  font-weight: var(--fw-semibold);
+  font-family: var(--ff-primary);
+  font-size: 0.86rem;
+}
+
+section article .info .stats p:nth-child(2) {
+  color: var(--clr-neutral-transparent-white);
+  text-transform: uppercase;
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-bold);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+section article .info .stats p:first-child {
+  font-weight: var(--fw-bold);
+  font-family: var(--ff-primary);
+  font-size: 1.5rem;
+  color: var(--clr-neutral-white);
+}
+
+@media (min-width: 1160px) {
+  main {
+    width: min(90%, 1200px);
+  }
+  section article {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .images img {
+    border-radius: 0 0 0.5rem 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .images :nth-child(1) {
+    display: block;
+  }
+  .images :nth-child(2) {
+    display: none;
+  }
+
+  section article .images {
+    grid-column: 2;
+  }
+
+  section article .info {
+    padding: 4rem;
+    text-align: initial;
+    display: flex;
+    flex-direction: column;
+  }
+
+  section article .info > p {
+    padding: 0;
+    padding-right: 1.3rem;
+  }
+
+  section article .info h1 {
+    font-size: 2.5rem;
+    line-height: initial;
+    margin-bottom: 1.1rem;
+  }
+
+  section article .info .stats {
+    margin-top: auto;
+    display: flex;
+    gap: 5rem;
+  }
+}
